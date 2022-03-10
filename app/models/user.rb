@@ -6,9 +6,9 @@ class User < ApplicationRecord
 		manager: 'manager'
 	}.freeze
 
-  def status
-		return STATUS[:manager] if role_id == 2
-		return STATUS[:admin] if role_id == 1
-		STATUS[:regular]
+  def role
+		return ROLES[:manager] if role_id == 2
+		return ROLES[:admin] if role_id == 1
+		ROLES[:regular]
 	end
 end

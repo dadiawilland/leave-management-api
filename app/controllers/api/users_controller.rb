@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
 
   # GET /users
@@ -18,9 +18,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors
     end
   end
 
@@ -29,13 +29,22 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors
     end
   end
 
   # DELETE /users/1
   def destroy
     @user.destroy
+  end
+
+  def login
+    user = User.where(
+      email: user_params[:email],
+      password: user_params[:password]
+    )
+
+    render json: user
   end
 
   private
@@ -55,7 +64,8 @@ class UsersController < ApplicationController
         :department,
         :email,
         :avatar_id,
-        :role,
+        :role_id,
+        :password
       )
     end
 end
