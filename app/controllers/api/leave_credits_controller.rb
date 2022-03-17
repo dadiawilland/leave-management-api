@@ -30,6 +30,6 @@ class Api::LeaveCreditsController < ApplicationController
     end
 
     def leave_credit_params
-        params.require(:leave_credit).permit(:id, :credits, :leave_type)
+        params.require(:leave_credit).permit(:credits, :leave_type)
     end
 end
