@@ -10,14 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_10_044846) do
-  create_table "leave_credits", force: :cascade do |t|
-    t.integer "leave_type"
-    t.integer "credits"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
+ActiveRecord::Schema[7.0].define(version: 2022_03_02_003515) do
   create_table "users", force: :cascade do |t|
     t.string "password"
     t.string "first_name"
@@ -29,6 +23,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_10_044846) do
     t.string "email"
     t.string "avatar_id"
     t.integer "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leave_credits", force: :cascade do |t|
+    t.integer "leave_type"
+    t.integer "credits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
