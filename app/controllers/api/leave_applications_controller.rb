@@ -13,7 +13,7 @@ class Api::LeaveApplicationsController < ApplicationController
       if leave_application.save
         render json: leave_application
       else
-        render json: "error shit"
+        render json: leave_application.errors
       end
     end
 
