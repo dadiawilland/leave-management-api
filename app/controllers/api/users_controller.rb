@@ -42,7 +42,7 @@ class Api::UsersController < ApplicationController
     user = User.where(
       email: user_params[:email],
       password: user_params[:password]
-    )
+    ).first
 
     render json: user
   end
